@@ -2,6 +2,9 @@ html,
 body {
   /* Height set by Angular Material */
   height: 100%;
+
+  /* Set 1rem equal to 10px */
+  font-size: 62.5%;
 }
 
 body {

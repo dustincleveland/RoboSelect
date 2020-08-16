@@ -5,4 +5,42 @@
     <button mat-icon-button>
         <mat-icon>notifications</mat-icon>
     </button>
+
+    <button mat-flat-button
+        [matMenuTriggerFor]="userMenu"
+        color="primary">
+
+        <mat-icon>account_circle</mat-icon>
+
+        <span class="username">{{ fullName }}</span>
+
+        <mat-icon>expand_more</mat-icon>
+    </button>
 </mat-toolbar>
+
+<mat-menu #userMenu>
+    <a mat-menu-item
+        [routerLink]="['/dashboard']">
+
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+    </a>
+
+    <a mat-menu-item
+        [routerLink]="['/profile']">
+
+        <mat-icon>account_box</mat-icon>
+        <span>Profile</span>
+    </a>
+
+    <a mat-menu-item
+        [routerLink]="['/admin']">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Administration</span>
+    </a>
+
+    <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+    </button>
+</mat-menu>
