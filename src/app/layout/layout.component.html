@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #leftSidenav
+        class="sidenav"
+        mode="side"
+        [opened]="isLeftPanelOpen">
+
+        Left Panel
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+        <button mat-icon-button
+            disableRipple="true"
+            (click)="onLeftPanelToggled()"
+            [class.closed]="!isLeftPanelOpen"
+            class="toggle">
+            
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+
+        <div class="content">
+            <ng-content></ng-content>
+        </div>
+
+        <button mat-icon-button
+            disableRipple="true"
+            (click)="onRightPanelToggled()"
+            [class.closed]="!isRightPanelOpen"
+            class="toggle">
+            
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+    </mat-sidenav-content>
+
+    <mat-sidenav #rightSidenav
+        class="sidenav"
+        position="end"
+        mode="side"
+        [opened]="isRightPanelOpen">
+
+        Right Panel
+    </mat-sidenav>
+</mat-sidenav-container>
