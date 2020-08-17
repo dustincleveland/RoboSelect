@@ -1,0 +1,15 @@
+@import "~@angular/material/theming";
+
+@mixin projects-panel-color($theme) {
+  $primary: map-get($theme, primary);
+  $foreground: map-get($theme, foreground);
+
+  .panel-header {
+    color: mat-color($primary, default-contrast);
+    background-color: mat-color($primary, 300);
+  }
+}
+
+@mixin projects-panel-theme($theme) {
+  @include projects-panel-color($theme);
+}

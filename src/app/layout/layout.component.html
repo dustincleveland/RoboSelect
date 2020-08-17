@@ -1,16 +1,19 @@
 <app-navbar></app-navbar>
 
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #leftSidenav
+    <mat-sidenav 
+        *ngIf="enableLeftPanel"
         class="sidenav"
         mode="side"
         [opened]="isLeftPanelOpen">
 
-        Left Panel
+        <ng-content select="[leftPanel]"></ng-content>
     </mat-sidenav>
 
     <mat-sidenav-content class="sidenav-content">
-        <button mat-icon-button
+        <button 
+            mat-icon-button
+            *ngIf="enableLeftPanel"
             disableRipple="true"
             (click)="onLeftPanelToggled()"
             [class.closed]="!isLeftPanelOpen"
@@ -23,7 +26,9 @@
             <ng-content></ng-content>
         </div>
 
-        <button mat-icon-button
+        <button 
+            mat-icon-button
+            *ngIf="enableRightPanel"
             disableRipple="true"
             (click)="onRightPanelToggled()"
             [class.closed]="!isRightPanelOpen"
@@ -33,12 +38,13 @@
         </button>
     </mat-sidenav-content>
 
-    <mat-sidenav #rightSidenav
+    <mat-sidenav 
+        *ngIf="enableRightPanel"
         class="sidenav"
         position="end"
         mode="side"
         [opened]="isRightPanelOpen">
 
-        Right Panel
+        <ng-content select="[rightPanel]"></ng-content>
     </mat-sidenav>
 </mat-sidenav-container>

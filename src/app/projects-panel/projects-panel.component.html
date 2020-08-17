@@ -1,0 +1,53 @@
+<div class="panel-header">
+    <span>Projects</span>
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button>
+        <mat-icon>add_circle_outline</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+        <mat-icon>sort</mat-icon>
+    </button>
+</div>
+
+<mat-accordion multi="false"
+    displayMode="flat"
+    class="projects-container">
+
+    <mat-expansion-panel *ngFor="let number of numbers"
+        class="project-panel"
+        togglePosition="before">
+
+        <mat-expansion-panel-header class="project-header">
+            <mat-panel-title class="project-header-title">
+                <span>Project {{ number }}</span>
+
+                <span class="spacer"></span>
+
+                <button mat-icon-button
+                    [matMenuTriggerFor]="projectMenu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<mat-menu #projectMenu>
+    <button mat-menu-item>
+        <mat-icon>edit</mat-icon>
+        <span>Rename</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon>content_copy</mat-icon>
+        <span>Copy</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+    </button>
+</mat-menu>
